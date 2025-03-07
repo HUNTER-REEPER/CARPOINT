@@ -1391,10 +1391,39 @@ header #search-icon {
     height: auto; 
     margin-right: 10px; 
     vertical-align: text-bottom; /* Align with the bottom of the text */ 
-  }
-  
-  .header {
+}
+
+.header {
     display: flex;
     align-items: center; 
     margin-bottom: 20px;
-  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .purchase-container {
+        width: 90%; /* Adjust for smaller screens */
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .header {
+        flex-direction: column; /* Stack header elements on smaller screens */
+        align-items: center;
+    }
+
+    .cart-icon {
+        margin-right: 0; /* Remove margin on mobile */
+        margin-bottom: 10px; /* Add space below icon */
+    }
+}
+
+@media (max-width: 480px) {
+    .purchase-container {
+        width: 95%; /* Further adjustments for very small screens */
+    }
+
+    .payment-logo {
+        width: 30px; /* Smaller logos on very small screens */
+    }
+}
