@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function searchHomePage() {
-        let query = searchInput.value.trim();
+        let query = searchInput.value.trim().toLowerCase(); // Convert to lowercase for case-insensitive search
         if (query) {
             window.location.href = `search-results.html?query=${encodeURIComponent(query)}`;
         } else {
@@ -77,11 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ✅ Toggle Navbar for Mobile
     menuIcon.addEventListener("click", function () {
-        if (navbar.classList.contains("active")) {
-            navbar.classList.remove("active");
-        } else {
-            navbar.classList.add("active");
-        }
+        navbar.classList.toggle("active");
         searchBox.style.display = 'none'; // Hide search when toggling navbar
     });
 

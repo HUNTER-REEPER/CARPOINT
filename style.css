@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 * {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -15,6 +15,171 @@
     --text-color: #020102;
     --bg-color: #fff;
 }
+
+/* ... (rest of your CSS) ... */
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(0, 0, 0, 0.85);
+}
+
+header.shadow {
+    box-shadow: 4px 4px 20px rgb(15 54 55 / 20%);
+    transition: 0.5s ease;
+}
+
+.nav.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+#menu-icon {
+    margin-right: 15px;
+    display: none;
+}
+
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-box {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    transform: translateY(10px);
+    display: none;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 8px;
+    padding: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    border: 2px solid #ffffff;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    padding: 10px;
+    width: 200px;
+    font-size: 16px;
+    color: #ffffff;
+    background: transparent;
+}
+
+.search-box button {
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    background: var(--main-color);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.search-box button:hover {
+    background: #fd052f;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 10px 0;
+}
+
+header .navbar a {
+    color: white !important;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: color 0.3s ease;
+}
+
+header .navbar a:hover {
+    color: #ffcc00 !important;
+}
+
+header .logo {
+    color: white !important;
+}
+
+header #search-icon {
+    color: white !important;
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    #menu-icon {
+        display: block;
+    }
+
+    .nav.container {
+        flex-direction: column;
+        align-items: center;
+        padding: 5px 0;
+    }
+
+    .navbar {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        text-align: center;
+        z-index: 1000;
+    }
+
+    .navbar.active {
+        display: flex;
+        flex-direction: column;
+        background: #222;
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+    .navbar li {
+        padding: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar a {
+        color: white;
+        display: block;
+        padding: 10px 15px;
+    }
+
+    .search-box {
+        position: fixed;
+        top: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        right: auto; /*remove right rule*/
+    }
+
+    .search-box input {
+        width: 150px;
+    }
+}
+
+/* ... (rest of your CSS) ... */
 
 html::-webkit-scrollbar {
     inline-size: 0.5rem;
@@ -98,7 +263,6 @@ header #search-icon {
 }
 
 
-
 .home {
     max-inline-size: 1300px;
     margin: auto;
@@ -106,12 +270,65 @@ header #search-icon {
     min-block-size: 640px;
     display: flex;
     align-items: center;
-    background: url(img/Background-home.png);
+    background: url(img/background3.png); /* Desktop background image */
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center left;
+    background-size: cover; 
+    background-position: center; /* Centers the image both vertically and horizontally */
+    position: relative;
 }
 
+.home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent; /* Removed overlay on desktop */
+    z-index: 1;
+}
+.home-text {
+    position: relative;
+    z-index: 2;
+    background-color: transparent; /* Removed background color from home-text desktop */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.home-text h1,
+.home-text ul li,
+.home-text a,
+.home-text strong,
+.home-text p { /* Added .home-text p */
+    color: white; /* Changed text color to white for desktop */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Added text shadow for readability */
+}
+
+.home-text p {
+    /* Removed duplicate color and text-shadow properties */
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    line-height: 1.6;
+}
+
+.home-text strong a {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+.highlighted-text {
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3); /* Reduced shadow */
+}
+
+/* Mobile Navigation and Background */
+@media (max-width: 768px) {
+    /* ... (rest of your mobile styles) ... */
+}
 .home-text {
     padding-inline-start: 130px;
 }
@@ -895,68 +1112,124 @@ header.shadow {
 }
 
 .navbar li {
-    padding: 10px 15px;
+    padding: 10px 25px; /* Increased horizontal padding for spacing */
 }
 
 .navbar a {
     text-decoration: none;
     color: white;
-    font-weight: bold;
+    font-weight: 600; /* Slightly bolder font weight */
+    font-size: 18px; /* Slightly larger font size */
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+.navbar a:hover {
+    color: #ff4d41; /* Color change on hover */
+}
+
+.navbar a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #ff4d41;
+    left: 0;
+    bottom: -6px;
+    transition: width 0.5s;
+}
+
+.navbar a:hover::after,
+.navbar a.active::after {
+    width: 100%;
+}
+
+.navbar a.active {
+    color: #ff4d41; /* Active link color */
 }
 
 /* 📱 Mobile Navbar Fix */
 @media (max-width: 768px) {
     .nav.container {
-        flex-direction: column;
+        display: flex;
+        justify-content: space-between;
         align-items: center;
-        padding: 5px 0;
+        padding: 10px 20px;
+        background-color: #222;
+        width: 100%;
     }
 
     .navbar {
-        flex-direction: column;
-        text-align: center;
-        width: 100%;
-        margin-top: 5px;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        display: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: auto; /* Change from 100% to auto */
+        gap: 1.5rem; /* Ensure consistent spacing */
     }
 
-    .navbar a {
-        display: block;
+    .navbar li {
         padding: 10px 15px;
     }
 
-    #menu-icon {
-        display: block;
-        font-size: 24px;
+    .navbar a {
+        text-decoration: none;
         color: white;
-        cursor: pointer;
+        font-weight: bold;
     }
 
-    .navbar.active {
-        display: flex;
-        flex-direction: column;
-        background: #222;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        padding: 10px;
-        z-index: 1001;
-        background-color: #222;
-        display: flex;
-        margin-top: 10px; /* added margin-top */
+    /* Mobile Navbar Fix */
+    @media (max-width: 768px) {
+        .nav.container {
+            flex-direction: column;
+            align-items: flex-start; /* Align to the start on mobile */
+            padding: 5px 20px; /* Add some left and right padding */
+        }
+
+        .navbar {
+            flex-direction: column;
+            text-align: left; /* Align text to the left */
+            width: 100%;
+            margin-top: 5px;
+            position: static; /* Change to static */
+            display: none;
+            gap: 0; /* Remove gap */
+        }
+
+        .navbar a {
+            display: block;
+            padding: 10px 15px;
+        }
+
+        #menu-icon {
+            display: block;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .navbar.active {
+            display: flex;
+            flex-direction: column;
+            background: #222;
+            width: 100%;
+            padding: 10px;
+            z-index: 1001;
+            background-color: #222;
+            margin-top: 10px;
+        }
+
+        .search-box {
+            position: fixed;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+        }
     }
 
-    .search-box {
-        position: fixed;
-        top: 50px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 90%;
+    @media (min-width: 769px) {
+        #menu-icon {
+            display: none;
+        }
     }
 }
 @media (min-width: 769px) {
