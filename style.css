@@ -197,19 +197,34 @@ html::-webkit-scrollbar-thumb {
     -ms-border-radius: 5rem;
     -o-border-radius: 5rem;
 }
-
 section {
-    padding: 4rem 0 2rem;
+    padding: 3rem 0 1.5rem; /* Adjusted vertical padding */
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 2rem 1rem 1rem; /* Adjusted mobile padding */
+    }
 }
 
 img {
-    inline-size: 100%;
+    max-inline-size: 100%; /* Prevents stretching */
+    height: auto; /* Maintains aspect ratio */
+    object-fit: cover; /* or contain */
 }
 
 body {
-    color: var(--text-color);
+    color: var(--text-color);  /* Or adjust to a contrasting color */
+    background-color: #D4BFA1;  /* Example medium roast color */
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6; 
 }
 
+@media (max-width: 768px) {
+    body {
+        background-color: #C3A380; /* Slightly lighter on mobile */
+    }
+}
 .container {
     max-inline-size: 1068px;
     margin-inline-start: auto;
@@ -1332,3 +1347,54 @@ header #search-icon {
         max-width: 80px; /* Smaller logo on mobile */
     }
 }
+.purchase-container {
+    width: 60%;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.purchase-container h1, .purchase-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.currency-selection, .payment-options {
+    margin-bottom: 20px;
+}
+
+.payment-option {
+    margin-bottom: 10px;
+}
+
+#confirm-purchase {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#confirm-purchase:hover {
+    background-color: #0056b3;
+}
+.payment-logo {
+    width: 40px;
+    height: auto;
+    margin: 0 5px;
+}
+.cart-icon {
+    width: 30px; 
+    height: auto; 
+    margin-right: 10px; 
+    vertical-align: text-bottom; /* Align with the bottom of the text */ 
+  }
+  
+  .header {
+    display: flex;
+    align-items: center; 
+    margin-bottom: 20px;
+  }

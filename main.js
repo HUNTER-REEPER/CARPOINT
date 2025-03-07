@@ -99,3 +99,18 @@ document.addEventListener("DOMContentLoaded", function () {
         header.classList.toggle("shadow", window.scrollY > 0);
     });
 });
+
+function showConfirmation(action, itemName, itemPrice) {
+    if (confirm(`Do you want to ${action.toLowerCase()} "${itemName}" or view more cars?`)) {
+        if (action === 'Purchase') {
+            // Redirect to purchase page, passing item name and price
+            window.location.href = `purchase.html?product=${encodeURIComponent(itemName)}&price=${encodeURIComponent(itemPrice)}`;
+        } else if (action === 'View Details') {
+            // Redirect to details page (replace with actual URL)
+            window.location.href = 'details.html';
+        }
+    } else {
+        // Redirect to view more cars (replace with actual URL/action)
+        window.location.href = '#cars';
+    }
+}
