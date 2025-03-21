@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Carpoint</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function() {
+      emailjs.init("johngithinji929@gmail.com"); // Replace with your actual EmailJS User ID
+    })();
+  </script>
+</head>
+
+<body>
+
+  <header>
+    <div class="nav container">
+      <a href="index.html" class="logo">Car<span>Point</span></a>
+      <ul class="navbar nav">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#cars">Cars</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#parts">Parts</a></li>
+        <li><a href="index.html#blog">My Blog</a></li>
+      </ul>
+      <div class="search-wrapper">
+        <i class='bx bx-search' id="search-icon"></i>
+        <div class="search-box">
+          <input type="text" placeholder="Search..." id="search-input">
+          <button id="search-button">Search</button>
+        </div>
+      </div>
+      <div class="nav-right">
+        <i class='bx bx-menu' id="menu-icon"></i>
+      </div>
+    </div>
+  </header>
+
+  <section id="contact" class="container my-5">
+    <div class="row">
+      <div class="col-12 mb-4">
+        <h2 class="text-center">Contact Us</h2>
+      </div>
+      <div class="col-md-8 mx-auto border rounded p-4 shadow-sm">
+        <form id="contactForm" action="YOUR_FORM_ENDPOINT_URL" method="POST">
+          <div class="mb-3">
+            <label for="contactName" class="form-label">Name</label>
+            <input type="text" class="form-control" id="contactName" placeholder="Enter your name" required>
+          </div>
+          <div class="mb-3">
+            <label for="contactEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="contactEmail" placeholder="Enter your email" required>
+          </div>
+          <div class="mb-3">
+            <label for="contactMessage" class="form-label">Message</label>
+            <textarea class="form-control" id="contactMessage" rows="3" placeholder="Your message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-warning">Submit</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="footer">
+    <div class="footer-container container">
+      <div class="footer-box">
+        <a href="index.html" class="logo">Cars <span>Point</span></a>
+        <div class="social">
+          <a href="https://www.facebook.com/JasonReeper" target="_blank"><i class='bx bxl-facebook'></i></a>
+          <a href="https://wa.me/254792533348" target="_blank"><i class='bx bxl-whatsapp'></i></a>
+          <a href="https://www.instagram.com/reeper.jason" target="_blank"><i class='bx bxl-instagram'></i></a>
+          <a href="mailto:johngithinji@gmail.com" target="_blank"><i class='bx bx-envelope'></i></a>
+        </div>
+      </div>
+
+      <div class="footer-box">
+        <h3>Support</h3>
+        <a href="contact.html">Contact Us</a>
+        <a href="about-us.html">About Us</a>
+        <a href="#">Privacy&nbsp;Policy</a>
+        <a href="#">Terms & Conditions</a>
+      </div>
+
+      <div class="footer-box">
+        <img src="img/logo.webp" alt="Car Point" class="footer-logo">
+      </div>
+
+    </div>
+  </section>
+
+  <div class="copy-right">
+    <p>&#169; Carpoint Company All Rights Reserved</p>
+    <p>Designed by John Githinjii</p>
+  </div>
+
+  <script src="main.js"></script>
+
+  <button id="goUpBtn" onclick="scrollToTop()">⬆ Go Up</button>
+
+  <script>
+    function scrollToTop() {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    window.addEventListener("scroll", function() {
+      let goUpBtn = document.getElementById("goUpBtn");
+      if (window.scrollY > 300) {
+        goUpBtn.classList.add("show");
+      } else {
+        goUpBtn.classList.remove("show");
+      }
+    });
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      // If using EmailJS:
+      emailjs.sendForm('service_4ktktkb', 'template_kgm395e', this) // Replace with your actual EmailJS Service ID and Template ID
+        .then(function() {
+          // Optionally, show a success message
+          document.getElementById('contactForm').reset();
+        }, function(error) {
+          // Optionally, show an error message
+        });
+
+      // If using Formspree (no further JavaScript needed):
+      // this.submit(); // Uncomment this line if using Formspree
+    });
+  </script>
+
+</body>
+
+</html>

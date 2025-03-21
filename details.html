@@ -1,14 +1,357 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Details</title>
+    <title>Product Details</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="details.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
-    <h1>Car Details</h1>
-    <p>Here are the details of the car you selected.</p>
-    <p>More information will be added here later.</p>
-    <a href="index.html">Back to Home</a>
+
+    <header>
+        <div class="nav container">
+            <a href="#" class="logo">Car<span>Point</span></a>
+            <ul class="navbar nav"> 
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#cars">Cars</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#parts">Parts</a></li>
+                <li><a href="index.html#blog">My Blog</a></li>
+            </ul>
+            <div class="search-wrapper">
+                <i class='bx bx-search' id="search-icon"></i>
+                <div class="search-box">
+                    <input type="text" placeholder="Search..." id="search-input">
+                    <button id="search-button">Search</button>
+                </div>
+            </div>
+            <div class="nav-right">
+                <i class='bx bx-menu' id="menu-icon"></i>
+            </div>
+        </div>
+    </header>
+    <div class="container" id="product-details-container">
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const productName = urlParams.get('product');
+        const productDetailsContainer = document.getElementById('product-details-container');
+
+        if (productName) {
+            let productDetailsHTML = '';
+
+            if (productName === 'Cartridge Fuel Filter') {
+                productDetailsHTML = `
+                    <h1>Cartridge Fuel Filter Components</h1>
+                    <div class="part">
+                        <div class="part-image-container">
+                            <img src="img/Cartridge Fuel Filter.jpg" alt="Cartridge Fuel Filter">
+                        </div>
+                        <div class="text-content">
+                            <h2>Cartridge Fuel Filter</h2>
+                            <p>The cartridge fuel filter is a key component in fuel systems, designed to remove contaminants from fuel before it reaches the engine. This ensures that the fuel burns efficiently, enhancing engine performance and longevity while reducing harmful emissions. A well-maintained filter is essential for preventing engine misfires and maintaining optimal fuel economy.</p>
+                        </div>
+                    </div>
+                    <div class="part">
+                        <div class="part-image-container">
+                            <img src="img/filter element.avif" alt="Filter Element">
+                        </div>
+                        <div class="text-content">
+                            <h2>Filter Element</h2>
+                            <p>The filter element is responsible for trapping dirt, debris, and other contaminants, ensuring clean fuel delivery. Made from high-quality materials, it plays a crucial role in protecting sensitive engine components from wear and tear. Over time, it may become clogged and require replacement to maintain optimal fuel flow and engine performance.</p>
+                        </div>
+                    </div>
+                    <div class="part">
+                        <div class="part-image-container">
+                            <img src="img/fuel filter housing.jpg" alt="Filter Housing">
+                        </div>
+                        <div class="text-content">
+                            <h2>Filter Housing</h2>
+                            <p>The filter housing encases the filter element, providing structural integrity and preventing fuel leakage. Built from durable materials, it withstands high-pressure conditions and harsh environmental factors, ensuring reliable operation. Regular inspection is necessary to check for cracks or leaks that could compromise the filtration system.</p>
+                        </div>
+                    </div>
+                    <div class="part">
+                        <div class="part-image-container">
+                            <img src="img/O-rings.jpg" alt="O-Rings and Seals">
+                        </div>
+                        <div class="text-content">
+                            <h2>O-Rings and Seals</h2>
+                            <p>O-rings and seals ensure a secure fit between the filter and its housing, preventing fuel leaks. These small but essential components are made from fuel-resistant rubber or silicone, designed to withstand extreme temperatures and pressure changes. Over time, they may degrade, requiring periodic replacement to maintain a leak-free system.</p>
+                        </div>
+                    </div>
+                    <div class="part">
+                        <div class="part-image-container">
+                            <img src="img/fuel filter drain plug.jpg" alt="Fuel Filter Drain Plug">
+                        </div>
+                        <div class="text-content">
+                            <h2>Fuel Filter Drain Plug</h2>
+                            <p>The drain plug allows for easy removal of water and contaminants collected at the bottom of the filter. Water can accumulate in the fuel system due to condensation, leading to corrosion and potential damage to fuel injectors. Regularly draining the filter helps prevent these issues, ensuring smooth engine operation and extending the lifespan of the fuel system.</p>
+                        </div>
+                    </div>
+                `;
+            } else if (productName === 'V8 engine part') {
+                productDetailsHTML = `
+                    <div class="part">
+                        <div class="part-image-container">
+                            <img src="img/part1.png" alt="V8 Engine">
+                        </div>
+                        <div class="text-content">
+                            <h2>V8 Engine</h2>
+                            <p>The V8 engine is a high-performance powerhouse known for its exceptional balance of power and efficiency. With eight cylinders arranged in a V configuration, this engine delivers smooth acceleration, immense torque, and high horsepower, making it a favorite for sports cars, muscle cars, and high-performance vehicles.</p>
+                        </div>
+                    </div>
+
+                    <div class="part">
+                        <div class="part-image-container">
+                            <img src="img/Pistons.jpg" alt="Pistons">
+                        </div>
+                        <div class="text-content">
+                            <h2>Pistons</h2>
+                            <p>Pistons are crucial components that transfer energy from fuel combustion to the crankshaft. In a V8 engine, each piston moves in synchronization to generate powerful thrust. Made from durable aluminum alloys, these pistons withstand extreme heat and pressure, ensuring optimal engine performance and longevity.</p>
+                        </div>
+                    </div>
+
+                    <div class="part">
+                        <div class="part-image-container">
+                            <img src="img/Crankshaft.jpg" alt="Crankshaft">
+                        </div>
+                        <div class="text-content">
+                            <h2>Crankshaft</h2>
+                            <p>The crankshaft converts the linear motion of the pistons into rotational energy, which powers the vehicle’s drivetrain. In a V8 engine, the crankshaft is designed for precise balancing and durability, reducing vibrations and ensuring smooth operation at high RPMs.</p>
+                        </div>
+                    </div>
+
+                    <div class="part">
+                        <div class="part-image-container">
+                            <img src="img/Camshaft.jpg" alt="Camshaft">
+                        </div>
+                        <div class="text-content">
+                            <h2>Camshaft</h2>
+                            <p>The camshaft controls the opening and closing of the engine’s intake and exhaust valves. A high-performance V8 camshaft is engineered to optimize airflow, improving combustion efficiency and enhancing overall horsepower and torque.</p>
+                        </div>
+                    </div>
+
+                    <div class="part">
+                        <div class="part-image-container">
+                            <img src="img/Exhaust Manifold.jpg" alt="Exhaust Manifold">
+                        </div>
+                        <div class="text-content">
+                            <h2>Exhaust Manifold</h2>
+                            <p>The exhaust manifold collects and directs exhaust gases from the engine cylinders to the exhaust system. Designed for efficiency, a well-tuned manifold improves airflow, enhances engine breathing, and contributes to better fuel economy and power output.</p>
+                        </div>
+                    </div>
+                `;
+            } else if (productName === 'V-twin engine crankshaft') {
+                productDetailsHTML = `
+                    <div class="part">
+                        <div class="part-image-container">
+                            <img src="img/part2.png" alt="V-Twin Engine Crankshaft">
+                        </div>
+                        <div class="text-content">
+                            <h2>V-Twin Engine Crankshaft</h2>
+                            <p>The V-Twin engine crankshaft is a fundamental component that transforms the linear motion of pistons into rotational force, providing the power necessary to drive the vehicle. Designed for durability and precision, it ensures smooth performance, reduced vibrations, and optimal power delivery.</p>
+                        </div>
+                    </div>
+
+                    <div class="part">
+                        <div class="part-image-container">
+                            <img src="img/Piston 1.avif" alt="Pistons">
+                        </div>
+                        <div class="text-content">
+                            <h2>Pistons</h2>
+                            <p>Pistons in a V-Twin engine operate in a synchronized manner to generate high torque and efficiency. These components are crafted from high-strength materials, ensuring they can withstand extreme heat and pressure, delivering consistent performance for both cruising and high-speed applications.</p>
+                        </div>
+                    </div>
+
+                    <div class="part">
+                        <div class="part-image-container">
+                            <img src="img/Connecting Rods.webp" alt="Connecting Rods">
+                        </div>
+                        <div class="text-content">
+                            <h2>Connecting Rods</h2>
+                            <p>Connecting rods link the pistons to the crankshaft, transmitting the force generated from combustion. In a V-Twin engine, these rods are engineered for strength and flexibility, allowing them to handle rapid acceleration while maintaining mechanical integrity.</p>
+                        </div>
+                    </div>
+
+                    <div class="part">
+                        <div class="part-image-container">
+                            <img src="img/Camshaft 1.jpg" alt="Camshaft">
+                        </div>
+                        <div class="text-content">
+                            <h2>Camshaft</h2>
+                            <p>The camshaft regulates the intake and exhaust valve timing, directly impacting engine efficiency and performance. A well-designed camshaft optimizes fuel combustion, enhancing horsepower and responsiveness in a V-Twin configuration.</p>
+                        </div>
+                    </div>
+
+                    <div class="part">
+                        <div class="part-image-container">
+                            <img src="img/Flywheel.png" alt="Flywheel">
+                        </div>
+                        <div class="text-content">
+                            <h2>Flywheel</h2>
+                            <p>The flywheel stabilizes the crankshaft’s motion by storing rotational energy. This ensures consistent power delivery and smooth operation, particularly at low RPMs, making the V-Twin engine well-suited for motorcycles and performance-driven machines.</p>
+                        </div>
+                    </div>
+                `;
+            } else if (productName === 'Automobile Parts and Accessories') {
+                productDetailsHTML = `
+                    <div class="part">
+                        <div class="part-image-container">
+                            <img src="img/Timing Belt.jpg" alt="Timing Belt">
+                        </div>
+                        <div class="text-content">
+                            <h2>Timing Belt</h2>
+                            <p>The timing belt synchronizes the rotation of the camshaft and crankshaft, ensuring precise engine timing. It prevents misfires and keeps engine components moving in harmony for optimal performance.</p>
+                        </div>
+                    </div>
+
+                    <div class="part">
+                        <div class="part-image-container">
+                            <img src="img/Oil Pump.png" alt="Oil Pump">
+                        </div>
+                        <div class="text-content">
+                            <h2>Oil Pump</h2>
+                            <p>The oil pump is responsible for circulating oil throughout the engine to lubricate moving parts, reduce friction, and dissipate heat. A properly functioning oil pump extends engine life and improves efficiency.</p>
+                        </div>
+                    </div>
+
+                    <div class="part">
+                        <div class="part-image-container">
+                            <img src="img/flywheel.png" alt="Flywheel">
+                        </div>
+                        <div class="text-content">
+                            <h2>Flywheel</h2>
+                            <p>The flywheel stores rotational energy and helps maintain smooth engine operation by balancing power delivery. It also plays a key role in starting the engine and connecting to the transmission.</p>
+                        </div>
+                    </div>
+
+                    <div class="part">
+                        <div class="part-image-container">
+                            <img src="img/valve_springs.png" alt="Valve Springs">
+                        </div>
+                        <div class="text-content">
+                            <h2>Valve Springs</h2>
+                            <p>Valve springs ensure that engine valves return to their closed position after opening. They are crucial for maintaining proper airflow and combustion cycles within the engine.</p>
+                        </div>
+                    </div>
+
+                    <div class="part">
+                        <div class="part-image-container">
+                            <img src="img/Rocker Arms.webp" alt="Rocker Arms">
+                        </div>
+                        <div class="text-content">
+                            <h2>Rocker Arms</h2>
+                            <p>Rocker arms play a key role in transmitting motion from the camshaft to the engine valves. They help open and close the valves at precise timings, ensuring efficient combustion and optimal engine performance.</p>
+                        </div>
+                    </div>
+                `;
+            } else if (productName === 'Car Alternator') {
+                productDetailsHTML = `
+                    <div class="part">
+                        <div class="part-image-container">
+                            <img src="img/part5.png" alt="Car Alternator">
+                        </div>
+                        <div class="text-content">
+                            <h2>Car Alternator</h2>
+                            <p>The car alternator is a vital component of the vehicle's electrical system, converting mechanical energy into electrical power. It ensures that the battery remains charged and supplies electricity to various components, including headlights, infotainment systems, and ignition systems. A failing alternator can cause electrical malfunctions, dimming lights, and even engine stalling. Regular maintenance and timely replacement of worn-out parts can help avoid sudden failures.</p>
+                        </div>
+                    </div>
+
+                    <div class="part">
+                        <div class="part-image-container">
+                            <img src="img/Voltage Regulator.jpg" alt="Voltage Regulator">
+                        </div>
+                        <div class="text-content">
+                            <h2>Voltage Regulator</h2>
+                            <p>The voltage regulator maintains a consistent voltage level, preventing overcharging or undercharging of the battery. It plays a critical role in ensuring a stable power supply for sensitive electronic systems such as ECU, sensors, and entertainment units. A malfunctioning regulator can lead to erratic performance and premature battery failure.</p>
+                        </div>
+                    </div>
+
+                    <div class="part">
+                        <div class="part-image-container">
+                            <img src="img/Alternator Pulley.avif" alt="Alternator Pulley">
+                        </div>
+                        <div class="text-content">
+                            <h2>Alternator Pulley</h2>
+                            <p>The alternator pulley connects to the serpentine belt, transferring mechanical energy from the engine to the alternator. A damaged or worn-out pulley can cause belt slippage, reducing efficiency and potentially leading to battery drainage. Routine inspections can help prevent unexpected issues.</p>
+                        </div>
+                    </div>
+
+                    <div class="part">
+                        <div class="part-image-container">
+                            <img src="img/Stator and Rotor.jpg" alt="Stator and Rotor">
+                        </div>
+                        <div class="text-content">
+                            <h2>Stator and Rotor</h2>
+                            <p>The stator and rotor work together to generate electrical power. The rotor spins within the stator, creating an electromagnetic field that produces alternating current (AC), which is then converted into direct current (DC) for vehicle operation. Any defects in these components can lead to inefficient power generation and electrical failures.</p>
+                        </div>
+                    </div>
+
+                    <div class="part">
+                        <div class="part-image-container">
+                            <img src="img/Brushes and Slip Rings.webp" alt="Brushes and Slip Rings">
+                        </div>
+                        <div class="text-content">
+                            <h2>Brushes and Slip Rings</h2>
+                            <p>Brushes and slip rings allow electrical current to flow between stationary and rotating parts of the alternator. As these parts experience constant friction, they wear down over time and may cause charging inconsistencies or complete alternator failure. Routine inspections and timely replacements ensure optimal performance.</p>
+                        </div>
+                    </div>
+                `;
+            } else if (productName === 'RS Sport Performance Tire') {
+                productDetailsHTML = `
+                    <div class="part">
+                        <div class="part-image-container">
+                            <img src="img/part6.png" alt="RS Sport Performance Tire">
+                        </div>
+                        <div class="text-content">
+                            <h2>RS Sport Performance Tire</h2>
+                            <p>The RS Sport Performance Tire is engineered for superior grip, handling, and durability. Designed for high-speed performance and enhanced road contact, these tires optimize braking efficiency and provide exceptional traction on both dry and wet surfaces. Advanced tread patterns and reinforced sidewalls ensure stability, making them ideal for sports cars and high-performance vehicles.</p>
+                        </div>
+                    </div>
+
+                    <div class="part">
+                        <div class="part-image-container">
+                            <img src="img/High-Performance Tread Design.jpg" alt="High-Performance Tread Design">
+                        </div>
+                        <div class="text-content">
+                            <h2>High-Performance Tread Design</h2>
+                            <p>The specialized tread design enhances road grip and minimizes hydroplaning risks. Deep grooves and sipes efficiently channel water away, providing outstanding wet-weather performance. The asymmetric tread pattern contributes to better cornering stability, giving drivers more confidence at high speeds.</p>
+                        </div>
+                    </div>
+
+                    <div class="part">
+                        <div class="part-image-container">
+                            <img src="img/Reinforced Sidewalls.jpg" alt="Reinforced Sidewalls">
+                        </div>
+                        <div class="text-content">
+                            <h2>Reinforced Sidewalls</h2>
+                            <p>Built with reinforced materials, the sidewalls provide added resistance to punctures and impacts. This improves durability while maintaining flexibility for smooth handling. The design helps reduce rolling resistance, contributing to fuel efficiency and longer tire lifespan.</p>
+                        </div>
+                    </div>
+
+                    <div class="part">
+                        <div class="part-image-container">
+                            <img src="img/Silica-Infused Rubber Compound.jpg" alt="Silica-Infused Rubber Compound">
+                        </div>
+                        <div class="text-content">
+                            <h2>Silica-Infused Rubber Compound</h2>
+                            <p>The advanced silica-infused rubber compound enhances grip while reducing heat buildup. This technology not only improves traction but also increases tread longevity. The compound adapts to varying temperatures, ensuring optimal performance in both summer and winter.<p>
+                                </d>
+                                `;
+            } else {
+                productDetailsHTML = `<p>Product details not found.</p>`;
+            }
+
+            productDetailsContainer.innerHTML = productDetailsHTML;
+        } else {
+            productDetailsContainer.innerHTML = `<p>Product details not found.</p>`;
+        }
+    </script>
+
 </body>
 </html>
